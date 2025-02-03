@@ -1,75 +1,62 @@
 # Credit Card Fraud Detector
 
-This project will detect fraudulent activity on consumer credit cards based on the following scenario: 
-A credit card transaction is comprised of the following elements.
-hashed credit card number
-timestamp - of format 'year-month-dayThour:minute:second'
-amount - of format 'dollars.cents'
-Transactions are to be received as a comma separated string of elements.
+## Overview
 
+Credit Card Fraud Detector is a system that identifies fraudulent transactions by monitoring credit card activity over a rolling 24-hour period. If the total amount of transactions for a specific card exceeds a predefined threshold, the card is flagged as fraudulent.
+
+## Features
+- Processes credit card transactions in real-time
+- Uses a sliding 24-hour window to monitor activity
+- Detects fraudulent transactions based on spending thresholds
+- Supports input in CSV format
+
+## Transaction Format
+Each transaction consists of three elements:
+- **Hashed Credit Card Number**
+- **Timestamp** (format: `YYYY-MM-DDTHH:MM:SS`)
+- **Amount** (format: `Dollars.Cents`)
+
+Example:
 ```
-eg. 10d7ce2f43e35fa57d1bbf8b1e2, 2014-04-29T13:15:54, 10.00
+10d7ce2f43e35fa57d1bbf8b1e2, 2014-04-29T13:15:54, 10.00
 ```
 
-A credit card will be identified as fraudulent if the sum of amounts for a unique hashed credit card number
-over a 24 hour sliding window period exceeds the price threshold.
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for testing purposes. See deployment for notes on how to deploy the project on a live system. 
+## Installation
 
 ### Prerequisites
+- Java (JDK 8 or higher)
+- Apache NetBeans (optional for development)
+- Git (for version control)
 
-The following are the system requirements prior to the installation of the project.
+### Steps
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/CreditCardFraudDetector.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd CreditCardFraudDetector
+   ```
+3. Build the project using Apache NetBeans or run:
+   ```sh
+   javac -d bin src/**/*.java
+   ```
+4. Run the application:
+   ```sh
+   java -cp bin com.yourpackage.Main
+   ```
 
-1. A PC/Mac/Linux based system with Git installed and configured
-2. Java Development Kit installed
-3. [JUnit 4.0](https://github.com/junit-team/junit4/wiki/Download-and-Install) jar file installed
-
-### Installing
-
-1. Open command prompt or terminal based on your system
-2. Type ```git clone https://github.com/aditisharma2512/CreditCardFraudDetector --depth 1```
-3. Traverse the following Directory:
-
-**Command Prompt**
-```
-cd CreditCardFraudDetector\src\creditcardfrauddetector
-```
-**Terminal**
-```
-cd CreditCardFraudDetector/src/creditcardfrauddetector
-```
-4. Compile the file using ```javac CreditCardFraudDetector.java```
-5. Execute the compiled file
-
-## Running the tests
-
-1. Compile the test cases
-
-```
-javac -d /absolute/path/for/compiled/classes -cp /absolute/path/to/junit-4.13.jar /absolute/path/to/TestClassName.java
+## Usage
+To analyze transactions, feed a CSV file containing transactions:
+```sh
+java -cp bin com.yourpackage.Main transactions.csv
 ```
 
-2. Run the test cases
-
-```
-java -cp /absolute/path/for/compiled/classes:/absolute/path/to/junit-4.13.jar:/absolute/path/to/hamcrest-core-1.3.jar org.junit.runner.JUnitCore CreditCardFraudDetector.CardFraudTest.java
-```
-
-
-## Built With
-
-* [Netbeans](https://netbeans.org/downloads/8.0.2/) - The Java IDE used
-* [GitHub](https://github.com/) - Home of the Repository
+## Contributing
+Contributions are welcome! Please follow these steps:
+1. Fork the repository
+2. Create a new feature branch
+3. Commit changes and push to your fork
+4. Submit a pull request
 
 
-## Versioning
-
-This is version 1.0. 
-
-## Authors
-
-* **Aditi Sharma**
-
-[LinkedIn](https://www.linkedin.com/in/aditisharma25/) | [Email](mailto:aditisharma2593@gmail.com)
